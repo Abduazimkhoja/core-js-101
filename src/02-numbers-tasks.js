@@ -19,9 +19,7 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
-}
+const getRectangleArea = (w, h) => w * h;
 
 
 /**
@@ -35,9 +33,7 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
-}
+const getCircleCircumference = (r) => r * Math.PI * 2;
 
 /**
  * Returns an average of two given numbers.
@@ -51,9 +47,7 @@ function getCircleCircumference(/* radius */) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
-}
+const getAverage = (a, b) => (a + b === Infinity ? a : (a + b) / 2);
 
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -70,9 +64,7 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
-}
+const getDistanceBetweenPoints = (x1, y1, x2, y2) => Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 
 /**
  * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
@@ -86,10 +78,7 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
-}
-
+const getLinearEquationRoot = (a, b) => (a !== 0 ? -b / a : b);
 
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
@@ -109,10 +98,10 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
-}
-
+const getAngleBetweenVectors = (x1, y1, x2, y2) => Math.acos(
+  ((x1 * x2 + y1 * y2) / (x1 ** 2 + y1 ** 2) ** 0.5)
+      * (x2 ** 2 + y2 ** 2) ** 0.5,
+);
 /**
  * Returns a last digit of a integer number.
  *
@@ -125,10 +114,7 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
-}
-
+const getLastDigit = (n) => n % 10;
 
 /**
  * Returns a number by given string representation.
@@ -141,9 +127,7 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
-}
+const parseNumberFromString = (n) => +n;
 
 /**
  * Returns a diagonal length of the rectangular parallelepiped given by its sides a,b,c.
@@ -158,9 +142,7 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
-}
+const getParallelepipedDiagonal = (a, b, c) => Math.sqrt(a * a + b * b + c * c);
 
 
 /**
@@ -180,9 +162,10 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
-}
+const roundToPowerOfTen = (num, pow) => {
+  const divisor = 10 ** pow;
+  return Math.round(num / divisor) * divisor;
+};
 
 /**
  * Returns true is the number is prime; otherwise false.
@@ -201,9 +184,13 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
-}
+const isPrime = (n) => (
+  n === 2
+    || n === 3
+    || n === 5
+    || n === 7
+    || (n % 2 !== 0 && n % 3 !== 0 && n % 5 !== 0 && n % 7 !== 0)
+);
 
 /**
  * Tries to convert value to number and returns it if conversion was successful;
@@ -220,9 +207,7 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
-}
+const toNumber = (value, def) => (Number.isNaN(+value) ? def : Number(value));
 
 module.exports = {
   getRectangleArea,

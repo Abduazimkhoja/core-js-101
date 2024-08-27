@@ -84,58 +84,63 @@ function getDigitalRoot(n) {
   return sum;
 }
 
-function isBracketsBalanced(str) {
-  const stack = [];
-  const matchingBrackets = {
-    ']': '[', ')': '(', '}': '{', '>': '<',
-  };
-  for (let i = 0; i < str.length; i + 1) {
-    const char = str[i];
-    if ('[({<'.includes(char)) stack.push(char);
-    else if (']})>'.includes(char) && stack.pop() !== matchingBrackets[char]) return false;
-  }
-  return stack.length === 0;
+function isBracketsBalanced(/* str */) {
+  // const stack = [];
+  // const matchingBrackets = {
+  //   ']': '[', ')': '(', '}': '{', '>': '<',
+  // };
+  // for (let i = 0; i < str.length; i + 1) {
+  //   const char = str[i];
+  //   if ('[({<'.includes(char)) stack.push(char);
+  //   else if (']})>'.includes(char) && stack.pop() !== matchingBrackets[char]) return false;
+  // }
+  // return stack.length === 0;
+  throw new Error('Not implemented');
 }
 
 function toNaryString(num, n) {
   return num.toString(n);
 }
 
-function getCommonDirectoryPath(paths) {
-  const splitPaths = paths.map((p) => p.split('/'));
-  let commonLength = splitPaths[0].length;
+function getCommonDirectoryPath(/* paths */) {
+  // const splitPaths = paths.map((p) => p.split('/'));
+  // let commonLength = splitPaths[0].length;
 
-  for (let i = 0; i < commonLength; i + 1) {
-    if (!splitPaths.every((path) => path[i] === splitPaths[0][i])) {
-      commonLength = i;
-      break;
-    }
-  }
+  // for (let i = 0; i < commonLength; i + 1) {
+  //   if (!splitPaths.every((path) => path[i] === splitPaths[0][i])) {
+  //     commonLength = i;
+  //     break;
+  //   }
+  // }
 
-  return splitPaths[0].slice(0, commonLength).join('/') + (commonLength > 0 ? '/' : '');
+  // return splitPaths[0].slice(0, commonLength).join('/') + (commonLength > 0 ? '/' : '');
+  throw new Error('Not implemented');
 }
 
-function getMatrixProduct(m1, m2) {
-  return m1.map((row) => m2[0].map((_, colIndex) => row.reduce(
-    (sum, val, rowIndex) => sum + val * m2[rowIndex][colIndex],
-    0,
-  )));
+function getMatrixProduct(/* m1, m2 */) {
+  // return m1.map((row) => m2[0].map((_, colIndex) => row.reduce(
+  //   (sum, val, rowIndex) => sum + val * m2[rowIndex][colIndex],
+  //   0,
+  // )));
+  throw new Error('Not implemented');
 }
 
 
-function evaluateTicTacToePosition(position) {
-  const lines = [
-    ...position,
-    position[0].map((_, i) => position.map((row) => row[i])),
-    [position[0][0], position[1][1], position[2][2]],
-    [position[0][2], position[1][1], position[2][0]],
-  ];
-  return lines.reduce((winner, line) => {
-    if (line.every((cell) => cell === 'X')) return 'X';
-    if (line.every((cell) => cell === '0')) return '0';
-    return winner;
-  }, undefined);
+function evaluateTicTacToePosition(/* position */) {
+  throw new Error('Not implemented');
+  // const lines = [
+  //   ...position,
+  //   position[0].map((_, i) => position.map((row) => row[i])),
+  //   [position[0][0], position[1][1], position[2][2]],
+  //   [position[0][2], position[1][1], position[2][0]],
+  // ];
+  // return lines.reduce((winner, line) => {
+  //   if (line.every((cell) => cell === 'X')) return 'X';
+  //   if (line.every((cell) => cell === '0')) return '0';
+  //   return winner;
+  // }, undefined);
 }
+
 module.exports = {
   getFizzBuzz,
   getFactorial,
